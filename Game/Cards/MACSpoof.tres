@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Game/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Spoof MAC"
+image = ExtResource( 2 )
+description = "Pretend you have a different MAC address, making it harder for the network to identify a hacker."
+type = 0

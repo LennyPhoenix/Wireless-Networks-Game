@@ -1,0 +1,143 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Game/Hint.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -85, -36 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Panel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Show"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -85, -36 ), Vector2( -85, -260 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Use"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -85, -260 ), Vector2( -85, -518 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Panel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[node name="Hint" type="Control"]
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+anims/Show = SubResource( 1 )
+anims/Use = SubResource( 6 )
+
+[node name="Panel" type="PanelContainer" parent="."]
+margin_left = -85.0
+margin_top = -36.0
+margin_right = 85.0
+margin_bottom = 224.0
+theme = ExtResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 162.0
+margin_bottom = 252.0
+mouse_filter = 2
+custom_constants/margin_right = 7
+custom_constants/margin_top = 4
+custom_constants/margin_left = 7
+custom_constants/margin_bottom = 9
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+margin_left = 7.0
+margin_top = 4.0
+margin_right = 147.0
+margin_bottom = 235.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 140.0
+margin_bottom = 26.0
+theme_type_variation = "CardTitle"
+text = "Name"
+align = 1
+
+[node name="Description" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 30.0
+margin_right = 140.0
+margin_bottom = 231.0
+size_flags_vertical = 7
+theme_type_variation = "CardDesc"
+text = "Hint details"
+autowrap = true
+
+[connection signal="mouse_entered" from="Panel" to="." method="_on_Panel_mouse_entered"]
+[connection signal="mouse_exited" from="Panel" to="." method="_on_Panel_mouse_exited"]

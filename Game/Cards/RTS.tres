@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Game/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "RTS/CTS"
+image = ExtResource( 2 )
+description = "Request To Send and Clear To Send refer to control flow signals used to minimise packet collisions."
+type = 1

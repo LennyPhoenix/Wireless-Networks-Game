@@ -1,0 +1,99 @@
+[gd_resource type="Theme" load_steps=12 format=2]
+
+[ext_resource path="res://Fonts/m5x7.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_color = Color( 0.717647, 0.85098, 1, 1 )
+use_mipmaps = true
+extra_spacing_top = -5
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.0812629, 0.389037, 0.732422, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.717647, 0.85098, 1, 1 )
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0131456, 0.166638, 0.337891, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.717647, 0.85098, 1, 1 )
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.0131456, 0.166638, 0.337891, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0.0784314, 0.164706, 1 )
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="DynamicFont" id=10]
+use_mipmaps = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.717647, 0.85098, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0.0784314, 0.164706, 1 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0812629, 0.389037, 0.732422, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.0131456, 0.166638, 0.337891, 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 128
+outline_size = 2
+outline_color = Color( 0.0131456, 0.166638, 0.337891, 1 )
+use_mipmaps = true
+extra_spacing_top = -12
+extra_spacing_char = 1
+extra_spacing_space = -6
+font_data = ExtResource( 1 )
+
+[resource]
+Button/fonts/font = SubResource( 2 )
+Button/styles/focus = SubResource( 6 )
+Button/styles/hover = SubResource( 5 )
+Button/styles/normal = SubResource( 4 )
+Button/styles/pressed = SubResource( 7 )
+CardDesc/fonts/font = SubResource( 10 )
+CardTitle/fonts/font = SubResource( 9 )
+Cell/styles/panel = SubResource( 8 )
+Label/fonts/font = SubResource( 2 )
+Panel/styles/panel = SubResource( 1 )
+PanelContainer/styles/panel = SubResource( 1 )
+Title/fonts/font = SubResource( 3 )

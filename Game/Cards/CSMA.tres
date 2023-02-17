@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Game/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "CSMA/CA"
+image = ExtResource( 2 )
+description = "Carrier Sense Multiple Access with Collision Avoidance defines how a device should respond when two devices attempt to use a data channel at the same time."
+type = 1

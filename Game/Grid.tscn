@@ -1,0 +1,102 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Game/Grid.gd" type="Script" id=1]
+[ext_resource path="res://Game/Cell.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Buildings/Building.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Buildings/Server.tres" type="Resource" id=4]
+[ext_resource path="res://Game/Buildings/Laptop.tres" type="Resource" id=5]
+[ext_resource path="res://Game/Buildings/Desktop.tres" type="Resource" id=6]
+[ext_resource path="res://Game/Buildings/Console.tres" type="Resource" id=7]
+[ext_resource path="res://Game/Buildings/Phone.tres" type="Resource" id=8]
+[ext_resource path="res://Theme.tres" type="Theme" id=9]
+[ext_resource path="res://UI/DialogueBox.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Game/Cards/Card.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Game/Hint.tscn" type="PackedScene" id=12]
+
+[node name="Grid" type="Node2D"]
+script = ExtResource( 1 )
+building_scene = ExtResource( 3 )
+cell_scene = ExtResource( 2 )
+card_scene = ExtResource( 11 )
+hint_scene = ExtResource( 12 )
+devices = [ ExtResource( 4 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 8 ) ]
+
+[node name="Cells" type="Node2D" parent="."]
+
+[node name="Buildings" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogueBox" parent="CanvasLayer" instance=ExtResource( 10 )]
+
+[node name="EndTurn" type="Button" parent="CanvasLayer"]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -118.0
+margin_top = -48.0
+margin_right = -22.0
+margin_bottom = -23.0
+grow_horizontal = 0
+theme = ExtResource( 9 )
+text = "End Turn"
+
+[node name="NewGame" type="Button" parent="CanvasLayer"]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -118.0
+margin_top = -48.0
+margin_right = -22.0
+margin_bottom = -23.0
+grow_horizontal = 0
+theme = ExtResource( 9 )
+text = "New Game"
+
+[node name="DefenceUI" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Draw" type="Button" parent="CanvasLayer/DefenceUI"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -13.0
+margin_right = -18.0
+margin_bottom = 12.0
+grow_horizontal = 0
+theme = ExtResource( 9 )
+text = "Draw Card"
+
+[node name="Cards" type="HBoxContainer" parent="CanvasLayer/DefenceUI"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 90.0
+mouse_filter = 0
+custom_constants/separation = 160
+
+[node name="OffenseUI" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+mouse_filter = 2
+
+[node name="Hints" type="HBoxContainer" parent="CanvasLayer/OffenseUI"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 90.0
+grow_horizontal = 0
+custom_constants/separation = 170
+
+[connection signal="button_up" from="CanvasLayer/NewGame" to="." method="_on_NewGame_button_up"]
